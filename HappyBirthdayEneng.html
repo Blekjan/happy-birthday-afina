@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday 💖</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #ffeaf3;
+      background-size: 40px 40px;
+      color: #444;
+      overflow-x: hidden;
+    }
+
+    section {
+      padding: 60px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h1, h2 {
+      font-family: 'Pacifico', cursive;
+      color: #ff5fa2;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 96px;
+    }
+
+    /* CARD */
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 25px rgba(255, 105, 180, 0.15);
+    }
+    .card p {
+  text-align: justify;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+
+    /* MUSIC */
+    .music-controls {
+      margin-top: 25px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .music-btn {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 30px;
+      background: #ff5fa2;
+      color: white;
+      font-size: 13px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(255,95,162,0.4);
+    }
+.music-btn {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.music-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 25px rgba(255,95,162,0.6);
+}
+
+    /* GALLERY */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+   .photo {
+  position: relative;
+  border-radius: 15px;
+  height: 140px;
+}
+
+.photo img:first-child {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  display: block;
+}
+.photo img:first-child {
+  transition: transform 0.5s ease;
+}
+
+.photo:hover img:first-child {
+  transform: scale(1.08);
+}
+
+/* ikon ilustrasi PNG transparan */
+.icon-card {
+  position: absolute;
+  bottom: 0px;   /* keluar ke bawah */
+  right: -24px;    /* keluar ke kanan */
+  width: 72px;     /* ukuran ilustrasi */
+  height: auto;
+  z-index: 10;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3));
+}
+.card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px rgba(255, 95, 162, 0.25);
+}
+.icon-card {
+  transition: transform 0.4s ease;
+}
+
+.photo:hover .icon-card {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+    /* CAKE */
+    .cake {
+      margin: 30px auto;
+      width: 120px;
+      animation: bounce 2s infinite;
+    }
+
+    .cake div {
+      background: #ff9acb;
+      border-radius: 10px;
+      margin: 5px auto;
+    }
+
+    .cake .layer1 { height: 30px; width: 120px; }
+    .cake .layer2 { height: 25px; width: 90px; background:#ffb6d9; }
+    .cake .layer3 { height: 20px; width: 60px; background:#ffd6e8; }
+
+    .candle {
+      width: 6px;
+      height: 25px;
+      background: #ff5fa2;
+      margin: auto;
+      position: relative;
+    }
+
+    .flame {
+      width: 10px;
+      height: 10px;
+      background: orange;
+      border-radius: 50%;
+      position: absolute;
+      top: -10px;
+      left: -2px;
+      animation: flicker 0.5s infinite alternate;
+    }
+
+    @keyframes flicker {
+      to { transform: scale(1.2); }
+    }
+
+    @keyframes bounce {
+      50% { transform: translateY(-10px); }
+    }
+
+    /* LOVE ANIMATION */
+    .love {
+      position: fixed;
+      top: -20px;
+      animation: fall linear forwards;
+      z-index: 9999;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 14px;
+      color: #999;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 48px; }
+      p { font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MUSIC -->
+  <audio id="music">
+    <source src="TULUS - Teman Hidup (Official Music Video).mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>Happy Birthday 💕</h1>
+      <p>hari ini kamu bertambah umur,<br>Selamat Ulang Tahun yang ke 21 sayangku</p>
+
+      <div class="cake">
+        <div class="candle"><div class="flame"></div></div>
+        <div class="layer3"></div>
+        <div class="layer2"></div>
+        <div class="layer1"></div>
+      </div>
+
+      <div class="music-controls">
+        <button class="music-btn" onclick="playMusic()">▶ Play</button>
+        <button class="music-btn" onclick="pauseMusic()">⏸ Pause</button>
+        <button class="music-btn" onclick="stopMusic()">⏹ Stop</button>
+      </div>
+    </div>
+  </section>
+
+<!-- GALLERY -->
+<!-- GALLERY -->
+<section>
+  <div class="container card">
+    <h2>Bunga yang Kamu Terima di Umur 20 🌷</h2>
+
+    <div class="gallery">
+      <div class="photo">
+        <img src="bunga1.jpg" alt="Bunga 1">
+        <img src="bunganobg1.png" class="icon-card" alt="Kartu">
+      </div>
+      <div class="photo">
+        <img src="bunga2.jpg" alt="Bunga 2">
+        <img src="bunganobg2.png" class="icon-card" alt="Kartu">
+      </div>
+      <div class="photo">
+        <img src="bunga3.jpg" alt="Bunga 3">
+        <img src="bunganobg3.png" class="icon-card" alt="Kartu">
+      </div>
+      <div class="photo">
+        <img src="bunga4.jpg" alt="Bunga 4">
+        <img src="bunganobg4.png" class="icon-card" alt="Kartu">
+      </div>
+      <div class="photo">
+        <img src="bunga5.jpg" alt="Bunga 5">
+        <img src="bunganobg5.png" class="icon-card" alt="Kartu">
+      </div>
+      <div class="photo">
+        <img src="bunga6.jpg" alt="Bunga 6">
+        <img src="bunganobg6.png" class="icon-card" alt="Kartu">
+      </div>
+      <div class="photo">
+        <img src="bunga7.jpg" alt="Bunga 7">
+        <img src="bunganobg7.png" class="icon-card" alt="Kartu">
+      </div>
+      <div class="photo">
+        <img src="bunga8.jpg" alt="Bunga 8">
+        <img src="bunganobg8.png" class="icon-card" alt="Kartu">
+      </div>
+      <div class="photo">
+        <img src="bunga9.jpg" alt="Bunga 9">
+        <img src="bunganobg9.png" class="icon-card" alt="Kartu">
+      </div>
+      <div class="photo">
+        <img src="bunga10.jpg" alt="Bunga 10">
+        <img src="bunganobg10.png" class="icon-card" alt="Kartu">
+      </div>
+    </div>
+
+    <p style="margin-top:20px">
+      setiap bunga punya cerita,<br>
+      dan semoga aku selalu jadi salah satu yang kamu inget 💕
+    </p>
+  </div>
+</section>
+
+  <!-- WISH -->
+  <section>
+  <div class="container card">
+    <h2>Birthday Wish 🎂</h2>
+
+    <p>
+      Semoga di umur yang baru ini kamu selalu diberi kesehatan, baik fisik maupun hati.
+      Semoga setiap hari kamu bangun dengan perasaan cukup, tanpa terlalu banyak beban di kepala,
+      dan selalu dikelilingi hal-hal baik yang mungkin kecil tapi berarti.
+      Aku harap kamu bisa menjalani hari-harimu dengan senyum yang tulus,
+      dengan langkah yang pelan tapi pasti, tanpa harus membandingkan hidupmu dengan siapa pun.
+    </p>
+
+    <p>
+      Aku juga berharap kuliah kamu ke depannya bisa berjalan dengan lancar.
+      Semoga setiap tugas, presentasi, dan proses belajar yang kamu jalani
+      bisa kamu lewati dengan sabar dan percaya diri.
+      Semoga kamu selalu diberi kemudahan untuk memahami apa yang kamu pelajari,
+      bertemu dengan orang-orang baik, dan menemukan versi terbaik dari dirimu di dunia akademik.
+      Capeknya boleh, nyerahnya jangan ya.
+    </p>
+
+    <p>
+      Di bidang kreatif, terutama di UKM esport, semoga semua ide kamu bisa tersalurkan dengan baik.
+      Semoga kamu tetap berani berkarya, bereksplorasi, dan percaya sama kemampuan diri sendiri.
+      Semoga setiap prosesnya terasa seru, penuh pembelajaran,
+      dan membawa kamu ke banyak pengalaman berharga yang kelak akan kamu banggakan.
+    </p>
+
+    <p>
+      Untuk peran kamu sebagai guru calistung, semoga selalu diberi kesabaran yang luas dan hati yang hangat.
+      Semoga setiap anak yang kamu ajar bisa merasakan ketulusan kamu,
+      dan semoga lelahmu terbayar oleh senyum kecil dan kemajuan mereka.
+      Apa yang kamu lakukan itu berarti, walaupun kadang tidak selalu terlihat.
+    </p>
+
+    <p>
+      Semoga di umur ini kamu makin mengenal dirimu sendiri, makin berani bermimpi,
+      dan makin kuat menghadapi dunia.
+      Dan semoga, di setiap langkahmu, kamu selalu ingat bahwa kamu tidak sendirian,
+      ada aku yang selalu mendoakanmu, mendukungmu, dan bangga sama kamu 🤍
+    </p>
+  </div>
+</section>
+
+
+  <!-- MESSAGE -->
+  <section>
+  <div class="container card">
+    <h2>Pesan dari Aku 💌</h2>
+
+    <p>
+      Makasih ya udah hadir di hidup aku. Makasih karena kamu datang bukan cuma sebagai seseorang
+      yang singgah, tapi sebagai bagian yang pelan-pelan bikin hidup aku terasa lebih penuh.
+      Makasih udah sabar sama segala versi aku, sama sikap aku yang kadang berantakan,
+      sama pikiran aku yang sering ribut sendiri. Makasih udah mau bareng-bareng,
+      jalan pelan, jatuh bangun, dan tetap milih tinggal.
+      Dan yang paling penting, makasih karena kamu selalu jadi rumah paling nyaman,
+      tempat aku pulang tanpa harus pura-pura kuat.
+    </p>
+
+    <p>
+      Kadang aku suka mikir, mungkin kalau aku nggak kenal kamu, hidup aku bakal biasa aja.
+      Aku nggak akan pernah tahu kalau Bandung punya banyak tempat indah
+      yang ternyata lebih hangat kalau dinikmati berdua.
+      Aku nggak akan tahu rasanya duduk santai sambil makan sate asin Monju,
+      ketawa kecil tanpa alasan yang jelas.
+      Aku nggak akan tahu nikmatnya pecel Podomoro, bebek item Bubat,
+      Kaybun dimsum, dan banyak tempat makan enak lainnya
+      yang sekarang selalu terasa punya cerita.
+    </p>
+
+    <p>
+      Mungkin juga kalau aku nggak kenal kamu,
+      aku nggak akan pernah ngerasain yang namanya study date.
+      Dari Nirmana sampai Metlit, yang harusnya capek dan bikin pusing,
+      tapi malah jadi kenangan yang hangat.
+      Duduk bareng, ngerjain tugas, saling ngeluh,
+      tapi tetap saling nemenin.
+      Dari situ aku belajar kalau kebersamaan itu
+      nggak harus selalu soal senang,
+      tapi soal hadir di momen yang biasa-biasa aja.
+    </p>
+
+    <p>
+      Kalau aku nggak kenal kamu,
+      mungkin aku juga nggak akan tahu banyak kafe enak
+      buat nongkrong, buat ngobrol lama,
+      atau sekadar diam bareng tanpa canggung.
+      Tempat-tempat itu sekarang rasanya kayak saksi kecil
+      dari tawa kita, obrolan kita,
+      dan kebersamaan yang pelan-pelan tumbuh.
+    </p>
+
+    <p>
+      Lebih dari itu semua,
+      kalau aku nggak kenal kamu,
+      mungkin aku nggak akan pernah jadi cowok
+      yang mau berusaha sejauh ini.
+      Kamu bikin aku pengen jadi lebih baik,
+      bukan karena tuntutan,
+      tapi karena rasa sayang.
+      Kamu bikin aku belajar sabar,
+      belajar ngerti,
+      dan belajar bertahan.
+    </p>
+
+    <p>
+      Semoga kita bisa terus bareng.
+      Ketawa di hal-hal kecil,
+      nemuin bahagia dari hal sederhana,
+      dan tumbuh sama-sama.
+      Aku nggak minta hubungan yang sempurna,
+      aku cuma mau hubungan yang terus diusahakan.
+      Dan selama itu sama kamu,
+      aku siap jalan sejauh apa pun 🤍
+    </p>
+
+  </div>
+</section>
+
+
+  <footer>
+    dibuat khusus untuk kamu • 7 Februari 💗
+  </footer>
+
+  <script>
+    const music = document.getElementById("music");
+
+    function playMusic() { music.play(); }
+    function pauseMusic() { music.pause(); }
+    function stopMusic() {
+      music.pause();
+      music.currentTime = 0;
+    }
+
+    function createLove() {
+      const love = document.createElement("div");
+      love.className = "love";
+      love.innerText = "💗";
+      love.style.left = Math.random() * 100 + "vw";
+      love.style.animationDuration = Math.random() * 3 + 3 + "s";
+      love.style.fontSize = Math.random() * 10 + 15 + "px";
+      document.body.appendChild(love);
+      setTimeout(() => love.remove(), 6000);
+    }
+
+    setInterval(createLove, 400);
+
+    const fadeElements = document.querySelectorAll('.fade-up');
+
+function showOnScroll() {
+  fadeElements.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if (top < windowHeight - 100) {
+      el.classList.add('show');
+    }
+  });
+}
+
+window.addEventListener('scroll', showOnScroll);
+showOnScroll();
+  </script>
+
+</body>
+</html>
